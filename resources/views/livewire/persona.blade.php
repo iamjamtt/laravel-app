@@ -154,7 +154,12 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item">
+                                            <a
+                                                class="dropdown-item"
+                                                style="cursor: pointer"
+                                                wire:click="eliminarPersona({{ $item->id_per }})"
+                                                wire:confirm="¿Estas seguro de eliminar a {{ $item->nombres_per }} {{ $item->apellidos_per }}?"
+                                            >
                                                 Eliminar
                                             </a>
                                         </li>

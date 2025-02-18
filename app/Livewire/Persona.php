@@ -119,4 +119,16 @@ class Persona extends Component
         // Cambiamos el modo a editar
         $this->modoEditar = true;
     }
+
+    public function eliminarPersona($id_per)
+    {
+        // Buscamos la persona por su id
+        $persona = ModelsPersona::find($id_per);
+
+        // Eliminamos la persona
+        $persona->delete();
+
+        // Mostramos un mensaje de éxito
+        session()->flash('mensaje', 'Persona eliminada correctamente');
+    }
 }
