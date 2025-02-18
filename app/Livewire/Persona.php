@@ -10,7 +10,8 @@ use Livewire\Component;
 
 class Persona extends Component
 {
-    #[Validate('required|min:3')]
+    // Definimos las variables del formulario
+    #[Validate('required|min:3')] // Validamos que el campo sea requerido y tenga un mínimo de 3 caracteres
     public string $nombres = '';
     #[Validate('required')]
     public string $apellidos = '';
@@ -30,6 +31,7 @@ class Persona extends Component
 
     public function guardarPersona()
     {
+        // Validamos los campos del formulario
         $this->validate([
             'nombres' => 'required|min:3',
             'apellidos' => 'required',
@@ -39,6 +41,7 @@ class Persona extends Component
             'direccion' => 'required',
         ]);
 
+        // Creamos una nueva instancia del modelo Persona
         $persona = new ModelsPersona();
         $persona->nombres_per = $this->nombres;
         $persona->apellidos_per = $this->apellidos;
@@ -46,10 +49,13 @@ class Persona extends Component
         $persona->genero_per = $this->genero;
         $persona->correo_per = $this->correo;
         $persona->direccion_per = $this->direccion;
+        // Guardamos la persona
         $persona->save();
 
+        // Limpiamos los campos del formulario
         $this->reset();
 
+        // Mostramos un mensaje de éxito
         session()->flash('mensaje', 'Persona guardada correctamente');
     }
 }
