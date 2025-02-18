@@ -104,4 +104,39 @@
             </form>
         </div>
     </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <span class="fw-bold fs-4">
+                Listado de Persona
+            </span>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombres y Apellidos</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">F. Nacimiento</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($todasLasPersonas as $item)
+                        <tr>
+                            <th scope="row">{{ $item->id_per }}</th>
+                            <td>{{ $item->nombres_per }} {{ $item->apellidos_per }}</td>
+                            <td>{{ $item->correo_per }}</td>
+                            <td>
+                                {{ date('d/m/Y', strtotime($item->fecha_nacimiento_per)) }}
+                            </td>
+                            <td>{{ $item->genero_per }}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

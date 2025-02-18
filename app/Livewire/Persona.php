@@ -26,7 +26,12 @@ class Persona extends Component
 
     public function render()
     {
-        return view('livewire.persona');
+        // obtenemos todos los registros de la tabla personas
+        $todasLasPersonas = ModelsPersona::all();
+
+        return view('livewire.persona', [
+            'todasLasPersonas' => $todasLasPersonas
+        ]);
     }
 
     public function guardarPersona()
