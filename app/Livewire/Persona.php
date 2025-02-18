@@ -39,6 +39,17 @@ class Persona extends Component
             'direccion' => 'required',
         ]);
 
-        dd($this->nombres, $this->apellidos, $this->fecha_nacimiento, $this->genero, $this->correo, $this->direccion);
+        $persona = new ModelsPersona();
+        $persona->nombres_per = $this->nombres;
+        $persona->apellidos_per = $this->apellidos;
+        $persona->fecha_nacimiento_per = $this->fecha_nacimiento;
+        $persona->genero_per = $this->genero;
+        $persona->correo_per = $this->correo;
+        $persona->direccion_per = $this->direccion;
+        $persona->save();
+
+        $this->reset();
+
+        session()->flash('mensaje', 'Persona guardada correctamente');
     }
 }

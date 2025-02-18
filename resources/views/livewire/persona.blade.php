@@ -1,8 +1,13 @@
 <div class="p-4">
+    @if (session()->has('mensaje'))
+        <div class="alert alert-success" role="alert">
+            {{ session('mensaje') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             <span class="fw-bold fs-4">
-                Persona
+                Formulario de Persona
             </span>
         </div>
         <div class="card-body">
