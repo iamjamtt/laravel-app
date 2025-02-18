@@ -1,4 +1,5 @@
 <div class="p-4">
+    <!-- Si existe un mensaje en la sesion lo mostramos -->
     @if (session()->has('mensaje'))
         <div class="alert alert-success" role="alert">
             {{ session('mensaje') }}
