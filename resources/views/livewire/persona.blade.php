@@ -12,7 +12,7 @@
             </span>
         </div>
         <div class="card-body">
-            <form class="row g-3" wire:submit="guardarPersona">
+            <form class="row g-3" wire:submit="{{ $modoEditar ? 'actualizarPersona' : 'crearPersona' }}">
                 <!-- Nombres -->
                 <div class="col-md-6">
                     <label for="nombres" class="form-label">
@@ -97,9 +97,15 @@
                 </div>
                 <!-- Button -->
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">
-                        Guardar
-                    </button>
+                    @if ($modoEditar === true)
+                        <button type="submit" class="btn btn-primary">
+                            Actualizar Persona
+                        </button>
+                    @else
+                        <button type="submit" class="btn btn-success">
+                            Crear Persona
+                        </button>
+                    @endif
                 </div>
             </form>
         </div>
@@ -139,7 +145,11 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item">
+                                            <a
+                                                class="dropdown-item"
+                                                style="cursor: pointer"
+                                                wire:click="cargarDatos({{ $item->id_per }})"
+                                            >
                                                 Editar
                                             </a>
                                         </li>
