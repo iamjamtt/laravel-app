@@ -111,7 +111,7 @@
             </span>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -124,7 +124,7 @@
                 </thead>
                 <tbody>
                     @foreach ($todasLasPersonas as $item)
-                        <tr>
+                        <tr wire:key="{{ $item->id_per }}">
                             <th scope="row">{{ $item->id_per }}</th>
                             <td>{{ $item->nombres_per }} {{ $item->apellidos_per }}</td>
                             <td>{{ $item->correo_per }}</td>
@@ -132,7 +132,25 @@
                                 {{ date('d/m/Y', strtotime($item->fecha_nacimiento_per)) }}
                             </td>
                             <td>{{ $item->genero_per }}</td>
-                            <td></td>
+                            <td class="text-center">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Opciones
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item">
+                                                Editar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item">
+                                                Eliminar
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
