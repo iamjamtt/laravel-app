@@ -5,6 +5,7 @@ namespace App\Livewire;
 // importamos el modelo Persona con el alias ModelsPersona
 // para evitar conflictos con el nombre de la clase Persona de nuestro componente
 use App\Models\Persona as ModelsPersona;
+use Filament\Notifications\Notification;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -130,5 +131,13 @@ class Persona extends Component
 
         // Mostramos un mensaje de éxito
         session()->flash('mensaje', 'Persona eliminada correctamente');
+    }
+
+    public function mostrarAlerta()
+    {
+        Notification::make()
+            ->title('Saved successfully')
+            ->success()
+            ->send();
     }
 }
