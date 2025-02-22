@@ -34,7 +34,8 @@ class Persona extends Component
     public function render()
     {
         // obtenemos todos los registros de la tabla personas
-        $todasLasPersonas = ModelsPersona::all();
+        // $todasLasPersonas = ModelsPersona::all();
+        $todasLasPersonas = collect();
 
         return view('livewire.persona', [
             'todasLasPersonas' => $todasLasPersonas
@@ -136,8 +137,15 @@ class Persona extends Component
     public function mostrarAlerta()
     {
         Notification::make()
-            ->title('Saved successfully')
+            ->title('Exito')
+            ->body('Persona eliminada correctamente')
             ->success()
+            ->color('success')
             ->send();
+    }
+
+    public function mostrarAlertaDispacth()
+    {
+        $this->dispatch('mostrarAlerta');
     }
 }

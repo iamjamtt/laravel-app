@@ -182,4 +182,38 @@
     >
         Button
     </flux:button>
+    <flux:button
+        type="button"
+        variant="primary"
+        x-on:click="
+            $dispatch('mostrarAlerta')
+        "
+    >
+        Button Dispacth
+    </flux:button>
+    <flux:button
+        type="button"
+        variant="filled"
+        x-on:click="$wire.mostrarAlertaDispacth"
+    >
+        Button Dispacth 2
+    </flux:button>
+    <flux:button
+        href="{{ route('livewire.inicio') }}"
+        wire:navigate
+        variant="danger"
+    >
+        Ir a Inicio
+    </flux:button>
 </div>
+@script
+<script>
+    $wire.on('mostrarAlerta', function () {
+        new FilamentNotification()
+            .title('Información')
+            .body('Persona eliminada correctamente')
+            .info()
+            .send()
+    });
+</script>
+@endscript
