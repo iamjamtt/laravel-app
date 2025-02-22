@@ -134,18 +134,18 @@ class Persona extends Component
         session()->flash('mensaje', 'Persona eliminada correctamente');
     }
 
-    public function mostrarAlerta()
-    {
-        Notification::make()
-            ->title('Exito')
-            ->body('Persona eliminada correctamente')
-            ->success()
-            ->color('success')
-            ->send();
-    }
+    // public function mostrarAlerta()
+    // {
+    //     Notification::make()
+    //         ->title('Exito')
+    //         ->body('Persona eliminada correctamente')
+    //         ->success()
+    //         ->color('success')
+    //         ->send();
+    // }
 
-    public function mostrarAlertaDispacth()
-    {
-        $this->dispatch('mostrarAlerta');
-    }
+    // public function mostrarAlertaDispacth()
+    // {
+    //     $this->dispatch('mostrarAlerta');
+    // }
 }

@@ -1,4 +1,4 @@
-{{-- <div class="p-4">
+<div class="p-4">
     <!-- Si existe un mensaje en la sesion lo mostramos -->
     @if (session()->has('mensaje'))
         <div class="alert alert-success" role="alert">
@@ -172,8 +172,8 @@
             </table>
         </div>
     </div>
-</div> --}}
-<div
+</div>
+{{-- <div
     class="p-5"
 >
     <flux:button
@@ -216,4 +216,4 @@
             .send()
     });
 </script>
-@endscript
+@endscript --}}
